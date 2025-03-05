@@ -1,4 +1,3 @@
-#Jordi Lumbreras#
 import sys
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -427,9 +426,7 @@ class BibliotecaApp(QMainWindow):
                 self.statusBar().showMessage("Llibre eliminat.")
         else:
             QMessageBox.warning(self, "Atenció", "No s'ha seleccionat cap llibre.")
-    # Antoni Catany
 
-    # Jordi Munar
     def view_book_details(self):
         selected_row = self.book_table.currentRow()
         if selected_row >= 0:
@@ -676,11 +673,8 @@ class BibliotecaApp(QMainWindow):
         else:
             event.ignore()
 
-
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = BibliotecaApp()
     window.show()
     sys.exit(app.exec())
-
-# Jordi Munar
