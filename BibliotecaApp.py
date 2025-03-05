@@ -266,7 +266,8 @@ class BibliotecaApp(QMainWindow):
         self.book_table.itemChanged.connect(self.on_book_table_item_changed)
         self.furniture_table.itemChanged.connect(self.on_furniture_table_item_changed)
 
-    # ----------------------- MENÚS ----------------------------------------
+        # ----------------------- MENÚS ----------------------------------------
+
     def create_menu_bar(self):
         menu_bar = self.menuBar()
 
@@ -323,8 +324,9 @@ class BibliotecaApp(QMainWindow):
             "Permet gestionar llibres i mobiliari, lloguer de llibres, etc."
         )
 
-    # --------------- LIBROS ---------------------------------------------
-    # Importar / Exportar CSV
+        # --------------- LIBROS ---------------------------------------------
+        # Importar / Exportar CSV
+
     def import_csv_books(self):
         file_path, _ = QFileDialog.getOpenFileName(
             self, "Selecciona un fitxer CSV (Llibres)", "", "CSV Files (*.csv)"
@@ -369,25 +371,25 @@ class BibliotecaApp(QMainWindow):
         ]
         self.update_table_books(filtered_df)
 
-    def update_table_books(self, df=None):
-        """Puebla la tabla de libros con los datos de 'df' (o de self.books_df)."""
-        if df is None:
-            df = self.books_df
+        def update_table_books(self, df=None):
+            """Puebla la tabla de libros con los datos de 'df' (o de self.books_df)."""
+            if df is None:
+                df = self.books_df
 
-        # Bloqueamos las señales para no disparar 'itemChanged' al rellenar la tabla.
-        self.book_table.blockSignals(True)
+            # Bloqueamos las señales para no disparar 'itemChanged' al rellenar la tabla.
+            self.book_table.blockSignals(True)
 
-        self.book_table.setRowCount(len(df))
-        self.book_table.setColumnCount(len(df.columns))
-        self.book_table.setHorizontalHeaderLabels(df.columns)
+            self.book_table.setRowCount(len(df))
+            self.book_table.setColumnCount(len(df.columns))
+            self.book_table.setHorizontalHeaderLabels(df.columns)
 
-        for row in range(len(df)):
-            for col in range(len(df.columns)):
-                value = str(df.iloc[row, col]) if pd.notna(df.iloc[row, col]) else ""
-                self.book_table.setItem(row, col, QTableWidgetItem(value))
+            for row in range(len(df)):
+                for col in range(len(df.columns)):
+                    value = str(df.iloc[row, col]) if pd.notna(df.iloc[row, col]) else ""
+                    self.book_table.setItem(row, col, QTableWidgetItem(value))
 
-        self.book_table.resizeColumnsToContents()
-        self.book_table.resizeRowsToContents()
+            self.book_table.resizeColumnsToContents()
+            self.book_table.resizeRowsToContents()
 
         # Desbloqueamos las señales para que ediciones del usuario sí actualicen el DataFrame.
         self.book_table.blockSignals(False)
