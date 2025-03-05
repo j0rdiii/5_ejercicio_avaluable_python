@@ -267,7 +267,8 @@ class BibliotecaApp(QMainWindow):
         self.book_table.itemChanged.connect(self.on_book_table_item_changed)
         self.furniture_table.itemChanged.connect(self.on_furniture_table_item_changed)
 
-    # ----------------------- MENÚS ----------------------------------------
+        # ----------------------- MENÚS ----------------------------------------
+
     def create_menu_bar(self):
         menu_bar = self.menuBar()
 
@@ -324,8 +325,9 @@ class BibliotecaApp(QMainWindow):
             "Permet gestionar llibres i mobiliari, lloguer de llibres, etc."
         )
 
-    # --------------- LIBROS ---------------------------------------------
-    # Importar / Exportar CSV
+        # --------------- LIBROS ---------------------------------------------
+        # Importar / Exportar CSV
+
     def import_csv_books(self):
         file_path, _ = QFileDialog.getOpenFileName(
             self, "Selecciona un fitxer CSV (Llibres)", "", "CSV Files (*.csv)"
