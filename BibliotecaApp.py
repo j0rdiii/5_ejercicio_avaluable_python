@@ -1,4 +1,3 @@
-#Jordi Lumbreras#
 import sys
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -227,8 +226,6 @@ class BibliotecaApp(QMainWindow):
 
         furniture_layout.addWidget(top_group_box_furn)
 
-        # Antoni Catany
-        # Tabla mobiliari
         self.furniture_table = QTableWidget()
         self.furniture_table.setEditTriggers(QTableWidget.EditTrigger.AllEditTriggers)
         self.furniture_table.setSelectionBehavior(QTableWidget.SelectionBehavior.SelectRows)
@@ -427,9 +424,7 @@ class BibliotecaApp(QMainWindow):
                 self.statusBar().showMessage("Llibre eliminat.")
         else:
             QMessageBox.warning(self, "Atenció", "No s'ha seleccionat cap llibre.")
-    # Antoni Catany
 
-    # Jordi Munar
     def view_book_details(self):
         selected_row = self.book_table.currentRow()
         if selected_row >= 0:
@@ -682,5 +677,3 @@ if __name__ == "__main__":
     window = BibliotecaApp()
     window.show()
     sys.exit(app.exec())
-
-# Jordi Munar
