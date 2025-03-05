@@ -226,7 +226,6 @@ class BibliotecaApp(QMainWindow):
         top_layout_furn.addWidget(self.export_button_furn)
 
         furniture_layout.addWidget(top_group_box_furn)
-        # Jordi Lumbreras
 
         # Antoni Catany
         # Tabla mobiliari
