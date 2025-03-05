@@ -368,7 +368,8 @@ class BibliotecaApp(QMainWindow):
         ]
         self.update_table_books(filtered_df)
 
-        def update_table_books(self, df=None):
+
+    def update_table_books(self, df=None):
             """Puebla la tabla de libros con los datos de 'df' (o de self.books_df)."""
             if df is None:
                 df = self.books_df
@@ -388,8 +389,8 @@ class BibliotecaApp(QMainWindow):
             self.book_table.resizeColumnsToContents()
             self.book_table.resizeRowsToContents()
 
-        # Desbloqueamos las señales para que ediciones del usuario sí actualicen el DataFrame.
-        self.book_table.blockSignals(False)
+            # Desbloqueamos las señales para que ediciones del usuario sí actualicen el DataFrame.
+            self.book_table.blockSignals(False)
 
     def on_book_table_item_changed(self, item: QTableWidgetItem):
         """Se llama cuando se edita una celda en la tabla de libros, para actualizar self.books_df."""
